@@ -61,6 +61,21 @@
                                        isNested:isNested];
 }
 
++ (instancetype)bindingForCollectionView:(UICollectionView *)collectionView
+                              sourceList:(KVOMutableArray*)source
+                       didSelectionBlock:(HFSelectionBlock)block
+                            templateCell:(UINib *)templateCellNib
+                                isNested:(BOOL)isNested {
+    UICollectionViewCell* templateCell = [[templateCellNib instantiateWithOwner:nil options:nil] firstObject];
+    [collectionView registerNib:templateCellNib forCellWithReuseIdentifier:templateCell.reuseIdentifier];
+    
+    return [[self alloc] initWithCollectionView:collectionView
+                                     sourceList:source
+                              didSelectionBlock:block
+                            cellReuseIdentifier:templateCell.reuseIdentifier
+                                       isNested:isNested];
+}
+
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView
                             sourceList:(KVOMutableArray*)source
                      didSelectionBlock:(HFSelectionBlock)block

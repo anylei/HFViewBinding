@@ -24,6 +24,13 @@
 + (instancetype)bindingForCollectionView:(UICollectionView *)collectionView
                               sourceList:(KVOMutableArray*)source
                        didSelectionBlock:(HFSelectionBlock)block
-                   cellReuseIdentifier:(NSString *)reuseIdentifier
+                     cellReuseIdentifier:(NSString *)reuseIdentifier
                                 isNested:(BOOL)isNested;
+
++ (instancetype)bindingForCollectionView:(UICollectionView *)collectionView
+                              sourceList:(KVOMutableArray*)source
+                       didSelectionBlock:(HFSelectionBlock)block
+                            templateCell:(UINib *)templateCellNib
+                                isNested:(BOOL)isNested;
+
 @end
